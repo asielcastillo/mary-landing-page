@@ -1,0 +1,587 @@
+/* ========================================================= */
+/* --- PALETA DE CORES (VARIÁVEIS CSS) --- */
+/* ========================================================= */
+
+:root {
+    /* Cores principais baseadas na sua lista */
+    --color-primary-dark: #1C252C;         /* Sua primeira cor (mais escura) - Para texto principal, títulos, botões, fundo do footer, e FUNDO DO HEADER */
+    --color-bg-lightest: #E7E2DE;          /* Sua quarta cor (mais clara) - Para fundo principal do body, e texto em fundos escuros (header, footer) */
+    --color-bg-medium: #D6D1CB;           /* Sua terceira cor - Para fundos de seções alternadas, bordas, imagem de perfil, hover em header */
+    --color-text-subtle: #ABA198;          /* Sua segunda cor (greige) - Para links de navegação secundários, texto sutil, links de contato, e HOVER DO HEADER */
+
+    /* Derivações para hover e sombras, mantendo a tonalidade da cor mais escura */
+    --color-hover-dark: #37474F;           /* Um tom mais escuro que --color-primary-dark para hover de botões/elementos escuros */
+    --color-shadow-base: rgba(0,0,0,0.05); /* Sombra suave para fundos claros */
+    --color-overlay-dark: rgba(28,37,44,0.6); /* Overlay escuro para hero-section, derivado de --color-primary-dark */
+}
+
+
+/* ========================================================= */
+/* --- RESET BÁSICO E ESTILOS GERAIS --- */
+/* ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Josefin Sans', sans-serif; /* Fonte atualizada */
+    line-height: 1.6;
+    color: var(--color-primary-dark); /* Texto principal do body usa a cor mais escura */
+    background-color: var(--color-bg-lightest); /* Fundo principal da página */
+}
+
+/* Títulos, parágrafos e links para herdar a cor do body, a menos que especificado */
+h1, h2, h3, h4, h5, h6, p, a {
+    color: inherit;
+}
+
+/* Container para centralizar o conteúdo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Botão padrão */
+.btn {
+    display: inline-flex; /* Adicionado para alinhar ícone e texto */
+    align-items: center; /* Alinha verticalmente ícone e texto */
+    background-color: var(--color-primary-dark); /* Botão com a cor mais escura */
+    color: var(--color-bg-lightest); /* Cor do texto no botão, contrastando com o fundo */
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif; /* Fonte atualizada */
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Adicionado transform */
+    border: none;
+    cursor: pointer;
+}
+
+.btn i {
+    margin-right: 8px; /* Espaço entre o ícone e o texto do botão */
+    font-size: 1.1em; /* Tamanho do ícone no botão */
+}
+
+.btn:hover {
+    background-color: var(--color-hover-dark); /* Hover mais escuro para o botão */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+/* ========================================================= */
+/* --- HEADER --- */
+/* ========================================================= */
+
+.main-header {
+    background-color: var(--color-primary-dark); /* FUNDO DO HEADER É A COR MAIS ESCURA */
+    padding: 15px 0;
+    border-bottom: 1px solid var(--color-bg-medium); /* Borda mais suave para se destacar no fundo escuro */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra um pouco mais visível em fundo escuro */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Para compensar o header fixo ao rolar para as seções */
+section[id] {
+    scroll-margin-top: 80px; /* Ajuste este valor para a altura exata do seu header + um pequeno offset (ex: 70px do header + 10px de folga) */
+}
+
+/* Estilos para o contêiner do logo (imagem + texto) */
+.logo-area {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-bg-lightest); /* Cor do logo e texto do logo agora são claros */
+}
+
+/* Estilos para a imagem do logo */
+.logo-image {
+    height: 40px;
+    margin-right: 10px;
+}
+
+/* Estilos para o texto "Mary Duarte." */
+.logo-text {
+    font-family: 'Playfair Display', serif; /* Fonte atualizada */
+    font-size: 1.8em;
+    color: var(--color-bg-lightest); /* Cor do logo e texto do logo agora são claros */
+    text-decoration: none;
+    transition: color 0.3s ease; /* Adicionando transition para o hover do logo */
+}
+
+/* Hover para o texto do logo */
+.logo-text:hover { /* NOVO HOVER PARA O LOGO */
+    color: var(--color-text-subtle);
+}
+
+
+.main-nav .nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav .nav-list li {
+    margin-left: 30px;
+}
+
+.main-nav .nav-list a {
+    text-decoration: none;
+    color: var(--color-bg-lightest); /* Links de navegação agora são claros */
+    font-family: 'Lora', serif; /* Mantido Lora para links de navegação para contraste com Josefin Sans, se desejar */
+    font-weight: 600;
+    font-size: 1.05em;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.main-nav .nav-list a:hover {
+    color: var(--color-text-subtle); /* AGORA O HOVER É O GRIEGE */
+}
+
+/* Botão de menu mobile (escondido em desktop, mostrado em mobile) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    color: var(--color-bg-lightest); /* Ícone do menu mobile agora é claro */
+    transition: color 0.3s ease; /* Adicionando transition para o hover do botão de menu */
+}
+
+/* Hover para o botão de menu mobile */
+.menu-toggle:hover { /* NOVO HOVER PARA O MENU MOBILE */
+    color: var(--color-text-subtle);
+}
+
+/* ========================================================= */
+/* --- SEÇÕES PRINCIPAIS (Home, Quem Sou Eu, Serviços...) --- */
+/* ========================================================= */
+
+/* ========================================================= */
+/* --- SEÇÃO QUEM SOU EU - IMAGEM DE PERFIL --- */
+/* ========================================================= */
+.profile-image {
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 40px auto;
+    display: block;
+    border: 5px solid var(--color-bg-medium); /* Uma borda sutil com a cor bg-medium */
+    box-shadow: 0 4px 10px var(--color-shadow-base);
+}
+
+.section-padded {
+    padding: 80px 0;
+    text-align: center;
+}
+
+.section-padded h1,
+.section-padded h2 { /* TÍTULOS H1 E H2 AQUI */
+    font-family: 'Playfair Display', serif; /* Fonte atualizada */
+    font-size: 2.8em;
+    color: var(--color-primary-dark); /* Títulos de seções com a cor mais escura */
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+/* NOVA REGRA PARA H3 DENTRO DE SECTION-PADDED */
+.section-padded h3 {
+    font-family: 'Playfair Display', serif; /* Fonte atualizada */
+    font-size: 2em; /* Tamanho ajustado, se desejar. Pode herdar do h2 ou ter um próprio */
+    color: var(--color-primary-dark);
+    margin-bottom: 20px;
+}
+
+.section-padded p {
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    font-size: 1.1em;
+    color: var(--color-primary-dark); /* Parágrafos com a cor mais escura (do body) */
+}
+
+.bg-light {
+    background-color: var(--color-bg-medium); /* Fundo de seções alternadas */
+}
+
+/* Hero Section (seção inicial) */
+.hero-section {
+    background: linear-gradient(var(--color-overlay-dark), var(--color-overlay-dark)), url('https://via.placeholder.com/1920x600/1C252C/E7E2DE?text=Sua+Imagem+De+Destaque') no-repeat center center/cover;
+    color: var(--color-bg-lightest); /* Cor do texto no hero */
+    padding: 120px 0;
+    text-align: center;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.hero-section h1 {
+    font-family: 'Playfair Display', serif; /* Fonte atualizada */
+    color: var(--color-bg-lightest); /* Título no hero com a cor mais clara para contraste */
+    font-size: 3.5em;
+    margin-bottom: 15px;
+}
+
+.hero-section p {
+    color: var(--color-bg-medium); /* Parágrafo no hero com uma cor intermediária */
+    font-size: 1.3em;
+    margin-bottom: 30px;
+}
+
+/* ========================================================= */
+/* --- SERVIÇOS --- */
+/* ========================================================= */
+
+/* Ajustes gerais para a seção de serviços */
+.services-grid {
+    gap: 40px;
+    margin-top: 50px;
+    display: grid; /* Adicionado para garantir o layout de grid */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Garante que os itens se ajustem */
+}
+
+.service-item {
+    background-color: var(--color-bg-lightest); /* Fundo do item de serviço */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--color-shadow-base);
+    text-align: left;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item h3 {
+    font-family: 'Playfair Display', serif; /* Fonte atualizada */
+    font-size: 1.6em;
+    color: var(--color-primary-dark); /* Título do serviço com a cor mais escura */
+    margin-bottom: 15px;
+}
+
+.service-item p {
+    font-size: 1em;
+    color: var(--color-primary-dark); /* Texto do serviço com a cor mais escura */
+    text-align: left;
+    margin: 0 0 15px 0;
+    flex-grow: 1;
+}
+
+/* Estilos específicos para as listas dentro dos itens de serviço */
+.service-item ul {
+    list-style: disc;
+    list-style-position: inside;
+    margin-top: 10px;
+    padding-left: 20px;
+    color: var(--color-primary-dark); /* Cor dos itens da lista */
+}
+
+.service-item ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+    font-size: 0.95em;
+}
+
+.service-item ul li:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================================= */
+/* --- DEPOIMENTOS --- */
+/* ========================================================= */
+
+/* Grid para os cards de depoimentos de texto/imagem/vídeo */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 ou mais colunas em desktop, 1 em mobile */
+    gap: 30px; /* Espaço entre os cards */
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.testimonial-card {
+    background-color: var(--color-bg-lightest); /* Fundo do card de depoimento */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px var(--color-shadow-base);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.testimonial-card .testimonial-image {
+    width: 200px; /* Largura para a imagem quadrada */
+    height: 200px; /* Altura para a imagem quadrada */
+    border-radius: 8px; /* Bordas levemente arredondadas */
+    object-fit: cover; /* Recorta a imagem para preencher o quadrado sem distorcer */
+    margin-bottom: 20px; /* Espaço entre a imagem e o texto */
+    border: 3px solid var(--color-bg-medium); /* Borda sutil */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Classe específica para imagens que precisam de alinhamento no topo */
+.testimonial-card .testimonial-image-top {
+    object-position: top; /* ANCORA A IMAGEM NO TOPO, ideal para rostos mais altos na foto */
+}
+
+.testimonial-card p {
+    font-style: italic;
+    font-size: 1.2em;
+    color: var(--color-primary-dark);
+    margin-bottom: 20px;
+    max-width: none;
+}
+
+.testimonial-card cite {
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    display: block;
+    margin-top: 10px;
+}
+
+/* --- ESTILOS PARA O VÍDEO VERTICAL (DENTRO DE UM CARD DE DEPOIMENTO) --- */
+.depoimento-video-container {
+  position: relative;
+  width: 100%; /* Ocupa 100% da largura do card pai */
+  padding-bottom: 177.77%; /* Proporção de aspecto 9:16 (altura / largura) para vídeos verticais (16/9 * 100) */
+  height: 0; /* Essencial para que o padding-bottom defina a altura */
+  overflow: hidden;
+  margin: 0 auto 20px auto; /* Centraliza e adiciona espaço abaixo do vídeo */
+  background-color: #000; /* Fundo preto para preencher espaços se a proporção não for exata */
+  border-radius: 8px; /* Mantém a estética do card */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Sombra para o player */
+}
+
+.depoimento-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que o vídeo preencha o contêiner, cortando o que for necessário */
+  /* Use 'contain' se preferir que o vídeo esteja todo visível, adicionando barras pretas nas laterais. */
+  border-radius: 8px; /* Arredonda as bordas do vídeo também */
+}
+
+/* Se precisar de estilos específicos para o card de vídeo em si */
+.video-testimonial-card {
+    /* Exemplo: pode-se ajustar o padding ou outras propriedades aqui se necessário,
+       mas por enquanto, herda os estilos de .testimonial-card */
+}
+
+/* ========================================================= */
+/* --- CONTATO --- */
+/* ========================================================= */
+
+/* Ajustes para a div.contact-info com os novos links e ícones */
+.contact-info {
+    margin-top: 40px;
+    font-size: 1.1em;
+    color: var(--color-primary-dark); /* Cores dos textos de contato */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: flex-start;
+    padding-left: 15%; /* Porcentagem para ser mais proporcional ao bloco */
+    box-sizing: border-box;
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+.contact-info i {
+    font-size: 1.4em;
+    margin-right: 12px;
+    color: var(--color-primary-dark); /* Cor dos ícones, usa a cor mais escura */
+    width: 30px;
+}
+
+.contact-info a {
+    color: var(--color-text-subtle); /* Cor dos links de contato com o greige */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: var(--color-primary-dark); /* Hover dos links de contato com a cor mais escura */
+    text-decoration: underline;
+}
+
+/* Estilo para o novo botão principal de WhatsApp na seção de contato */
+.btn-whatsapp-main {
+    background-color: var(--color-primary-dark); /* Cor mais escura para o botão */
+    color: var(--color-bg-lightest);
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 15px 30px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-family: 'Playfair Display', serif; /* Fonte atualizada */
+}
+
+.btn-whatsapp-main i {
+    margin-right: 10px;
+    font-size: 1.5em;
+}
+
+.btn-whatsapp-main:hover {
+    background-color: var(--color-hover-dark); /* Hover da cor mais escura */
+    transform: translateY(-2px);
+}
+
+/* ========================================================= */
+/* --- BOTÃO FLUTUANTE WHATSAPP --- */
+/* ========================================================= */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: var(--color-primary-dark); /* Cor mais escura para o botão */
+    color: var(--color-bg-lightest);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    z-index: 1000;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.whatsapp-float:hover {
+    background-color: var(--color-hover-dark); /* Hover da cor mais escura */
+    transform: scale(1.05);
+}
+
+/* ========================================================= */
+/* --- FOOTER --- */
+/* ========================================================= */
+
+.main-footer {
+    background-color: var(--color-primary-dark); /* Fundo do footer com a cor mais escura */
+    color: var(--color-bg-lightest); /* Texto do footer com a cor mais clara */
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* ========================================================= */
+/* --- RESPONSIVIDADE --- */
+/* ========================================================= */
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-wrap: wrap;
+    }
+
+    .main-nav {
+        display: none;
+        width: 100%;
+        margin-top: 15px;
+        background-color: var(--color-bg-lightest); /* Fundo do menu mobile em modo 'active' */
+        box-shadow: 0 5px 10px var(--color-shadow-base);
+    }
+
+    .main-nav.active {
+        display: block;
+    }
+
+    .main-nav .nav-list {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .main-nav .nav-list li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .profile-image {
+        max-width: 200px;
+        margin-bottom: 30px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .section-padded h1, .section-padded h2 {
+        font-size: 1.8em;
+    }
+
+    .section-padded p {
+        font-size: 1em;
+    }
+
+    .contact-info {
+        padding-left: 10%; /* Ajuste o padding-left em telas menores */
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 2em;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr; /* Uma única coluna em telas menores */
+    }
+
+    /* Ajuste específico para o contêiner do vídeo em telas menores */
+    .depoimento-video-container {
+        max-width: 300px; /* Limita a largura do vídeo vertical em telas menores para não ficar excessivamente grande */
+        margin-left: auto; /* Centraliza o contêiner limitado */
+        margin-right: auto; /* Centraliza o contêiner limitado */
+    }
+}
+
+/* Em telas muito pequenas, talvez seja bom um padding ainda menor */
+@media (max-width: 480px) {
+    .contact-info {
+        padding-left: 5%; /* Padding menor para caber em telas muito estreitas */
+    }
+
+    /* Ajuste ainda menor para o contêiner do vídeo em telas muito pequenas */
+    .depoimento-video-container {
+        max-width: 250px; /* Ajuste ainda mais a largura máxima para telas muito pequenas */
+    }
+}

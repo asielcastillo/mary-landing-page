@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mary Duarte | Assessoria e Cerimonial de Alto Padrão</title>
+
+    <!-- Google Fonts: Playfair Display (serifada), Lora (serifada) e Josefin Sans (sem serifa) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+    <!-- Link para Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Nosso arquivo CSS principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo-area">
+                <!-- COLOQUE AQUI O CAMINHO PARA O ARQUIVO DO LOGO DA SUA CLIENTE -->
+                <img src="./Icone/Mary Duarte - Cerimonial7.png" alt="Logotipo Mary Duarte" class="logo-image">
+                <a href="#home" class="logo-text">Mary Duarte</a>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list" id="main-navigation"> <!-- ATENÇÃO: AQUI FOI ADICIONADO id="main-navigation" -->
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#quem-sou-eu">Quem Sou Eu</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#depoimentos">Depoimentos</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" aria-label="Abrir menu">☰</button>
+        </div>
+    </header>
+
+    <main>
+        <section id="quem-sou-eu" class="section-padded">
+            <div class="container">
+                <h2>Quem Sou Eu</h2>
+                <img src="./JPG/mary-foto.jpg" alt="Foto de perfil de Mary Duarte" class="profile-image">
+                <p>Sou Mary Duarte, especialista em assessoria e cerimonial de alto padrão, com foco em transformar eventos em vivências memoráveis.</p>
+                <p>Com uma trajetória marcada por inovação e sensibilidade, atendo casais sofisticados e empresas visionárias que buscam mais do que um evento — desejam uma experiência sensorial, elegante e inesquecível.</p>
+                <p>Cada detalhe é desenhado para encantar. Meu atendimento é personalizado, empático e estratégico, pensado para quem valoriza tempo, beleza e excelência.</p>
+            </div>
+        </section>
+
+        <section id="home" class="hero-section section-padded">
+            <div class="container">
+                <h1>Assessoria e Cerimonial de Alto Padrão</h1>
+                <p>Transformando eventos em vivências memoráveis para casais sofisticados e empresas visionárias.</p>
+                <a href="https://api.whatsapp.com/send?phone=5563991232425&text=Olá%20Mary%20Duarte!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20cerimonial."  rel="noopener noreferrer" class="btn">
+                    <i class="fab fa-whatsapp"></i> Solicite um Orçamento
+                </a>
+            </div>
+        </section>
+
+        <section id="servicos" class="section-padded bg-light">
+            <div class="container">
+                <h2>Meus Serviços</h2>
+                <div class="services-grid">
+                    <div class="service-item">
+                        <h3>Casamentos de Luxo</h3>
+                        <p>Planejamento e execução completa para casais exigentes que desejam um casamento com identidade, sofisticação e experiências multissensoriais.</p>
+                        <ul>
+                            <li>Assessoria Completa</li>
+                            <li>Design de Experiência Exclusivo</li>
+                            <li>Curadoria de Fornecedores Premium</li>
+                            <li>Atendimento estratégico e emocional</li>
+                        </ul>
+                    </div>
+                    <div class="service-item">
+                        <h3>Eventos Intimistas com Elegância</h3>
+                        <p>Perfeito para quem deseja celebrar em grande estilo, com charme e delicadeza.</p>
+                        <ul>
+                            <li>Batizados, aniversários e bodas</li>
+                            <li>Ambientação e roteiro afetivo</li>
+                            <li>Atendimento personalizado</li>
+                        </ul>
+                    </div>
+                    <div class="service-item">
+                        <h3>Eventos Corporativos com Propósito</h3>
+                        <p>Conecte sua marca a momentos que encantam, fortalecem relacionamentos e geram autoridade.</p>
+                        <ul>
+                            <li>Lançamentos, premiações e confraternizações</li>
+                            <li>Planejamento estratégico e sensorial</li>
+                            <li>Captação de patrocínio e parcerias</li>
+                            <li>Produção e cerimonial executivo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="section-padded">
+            <div class="container">
+                <h2>O que dizem nossos clientes</h2>
+
+                <!-- Grid para Depoimentos em Texto e o Depoimento em Vídeo -->
+                <div class="testimonials-grid">
+                    <!-- Primeiro Depoimento (Card 1) -->
+                    <div class="testimonial-card">
+                        <img src="./depoimentos/depoimento-1.jpg" alt="Foto da cliente Karoline" class="testimonial-image testimonial-image-top">
+                        <p>“Mary, se não fosse você eu não teria vivido o melhor dia da minha vida. Eu não tenho palavras para descrever a sua competência, o seu carinho e o seu cuidado.”</p>
+                        <cite>– Karoline</cite>
+                    </div>
+
+                    <!-- NOVO POSICIONAMENTO: Depoimento em Vídeo (Card 2 - agora no meio) -->
+                    <div class="testimonial-card video-testimonial-card">
+                        <div class="depoimento-video-container">
+                            <video class="depoimento-video" controls playsinline poster="./depoimentos/thumbnail_video_vertical.jpg">
+                                <!-- Certifique-se de que o caminho para seu vídeo esteja correto -->
+                                <source src="./depoimentos/feedback_vertical.mp4" type="video/mp4">
+                                <!-- Opcional: Adicione outros formatos de vídeo (ex: .webm) para maior compatibilidade -->
+                                <!-- <source src="./depoimentos/feedback_vertical.webm" type="video/webm"> -->
+                                Seu navegador não suporta a reprodução de vídeo.
+                            </video>
+                        </div>
+                        <p>Assista ao feedback emocionante de uma de nossas clientes!</p>
+                        <cite>– Depoimento de Cliente</cite>
+                    </div>
+
+                    <!-- Segundo Depoimento (Card 3 - agora depois do vídeo) -->
+                    <div class="testimonial-card">
+                        <img src="./depoimentos/depoimento-2.jpg" alt="Foto da cliente Jeyneffer com Mary Duarte" class="testimonial-image">
+                        <p>“Você brilha no que faz, entra com a alma e vive o sonho conosco. Não erramos em escolher você, naquele dia sentimos que tinha que ser você.”</p>
+                        <cite>– Jeyneffer</cite>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section-padded bg-light">
+            <div class="container">
+                <h2>Entre em Contato</h2>
+                <p>Vamos conversar sobre o seu evento dos sonhos. Escolha a forma mais fácil para você:</p>
+
+                <!-- Botão principal para contato via WhatsApp na seção de Contato -->
+                <a href="https://api.whatsapp.com/send?phone=5563991232425&text=Olá%20Mary%20Duarte!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20cerimonial."  rel="noopener noreferrer" class="btn btn-whatsapp-main">
+                    <i class="fab fa-whatsapp"></i> Chame no WhatsApp Agora!
+                </a>
+
+                <div class="contact-info">
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://api.whatsapp.com/send?phone=5563991232425&text=Olá%20Mary%20Duarte!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20cerimonial."  rel="noopener noreferrer">+55 63 99123-2425</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:maryduarte.mk@gmail.com">maryduarte.mk@gmail.com</a></p>
+                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/cerimonialmaryduarte/"  rel="noopener noreferrer">@cerimonialmaryduarte</a></p>
+                    <p><i class="fab fa-facebook-f"></i> <a href="https://www.facebook.com/profile.php?id=100063044359731"  rel="noopener noreferrer">Mary Duarte Cerimonial</a></p>
+                </div>
+            </div> 
+        </section>
+    </main>
+
+    <a href="https://api.whatsapp.com/send?phone=5563991232425&text=Olá%20Mary%20Duarte!%20Gostaria%20de%20saber%20mais%20sobre%20seus%20serviços%20de%20cerimonial."  rel="noopener noreferrer" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2025 Mary Duarte. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Arquivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
